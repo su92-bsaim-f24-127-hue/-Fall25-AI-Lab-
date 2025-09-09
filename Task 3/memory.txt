@@ -1,0 +1,7 @@
+Temperature,Action
+18,Turn off AC
+22,Turn on AC
+20,Turn on AC
+24,Turn on AC
+21,Turn on AC
+25,Turn on AC
