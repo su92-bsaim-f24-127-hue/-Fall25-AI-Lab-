@@ -3,21 +3,22 @@ def luhn_check(number):
     if  len(s) != 16:
         return False
 
-    check_digit = int(s[-1])         
-    core = s[:-1][::-1]               
+    digit = int(s[-1])         
+    c = s[:-1][::-1]               
     total = 0
     for i in range(len(core)):
-        d = int(core[i])
+        d = int(c[i])
         if i % 2 == 0:                 
             d *= 2
             if d > 9:
                 d -= 9
         total += d
     print(total)
-    total += check_digit
+    total += digit
     print(total)
     return total % 10 == 0
 
 #print(luhn_check("5893804115457289"))
 #print(luhn_check("1234567812345670"))
+
 print(luhn_check("1234567812345678"))  # Invalid
