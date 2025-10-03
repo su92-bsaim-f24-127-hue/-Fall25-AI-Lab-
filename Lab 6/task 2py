@@ -1,0 +1,33 @@
+class Queue:
+    def __init__(self):
+        self.items = []
+    def enqueue(self, item):
+        self.items.append(item)
+    def dequeue(self):      
+        return self.items.pop(0)
+    def is_empty(self): 
+        return len(self.items) == 0
+    def bfs(self,Tree, start, goal):
+        visited = []
+        q = Queue()
+        q.enqueue(start)
+        while not q.is_empty():
+            n = q.dequeue()
+            if n not in visited:
+                visited.append(n)
+                if n == goal:
+                    break
+                for i in Tree.get(n):
+                    if i not in visited:
+                        q.enqueue(i)
+        return visited
+Tree = {
+    "a": ["b", "c"],
+    "b": ["d", "e"],
+    "c": ["f"],
+    "d": [],
+    "e": ["f"],
+    "f": []
+} 
+q = Queue()
+print(q.bfs(Tree, "a", "f"))
